@@ -1,0 +1,51 @@
+{% extends 'student_template/base_template.html' %}
+{% block page_title %}
+Result
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+                    <div class="row">
+              <div class="col-md-12">
+            <!-- general form elements -->
+
+            <!-- /.card -->
+           <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Result</h3>
+              </div>
+
+               <div class="table">
+               <table class="table">
+                   <tr>
+                       <th>ID</th>
+                       <th>Subject</th>
+                       <th>First Sessional Marks</th>
+                       <th>Second Sessional Marks</th>
+                       <th>TA Marks</th>
+                       <th>Mock Marks</th>
+                   </tr>
+                   {% for row in mark %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ row.subject_id.sub_name }}</td>
+                            <td>{{ row.sessional_1 }}</td>
+                            <td>{{ row.sessional_2 }}</td>
+                            <td>{{ row.ta }}</td>
+                            <td>{{ row.mock }}</td>
+
+                        </tr>
+                   {% endfor %}
+               </table>
+               </div>
+            </div>
+
+
+
+          </div>
+          </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}

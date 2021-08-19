@@ -1,0 +1,65 @@
+{% extends 'faculty_template/base_template.html' %}
+{% block page_title %}
+Attendance
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+
+
+           <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Manage Details</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+                <form action="#" method="post">
+            {% csrf_token %}
+
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>Roll Number</th>
+                      <th>Name</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for stu in student %}
+                    <tr>
+                      <td>{{ stu.roll_no }}</td>
+                      <td>{{ stu.admin.first_name }} {{ stu.admin.last_name }}</td>
+                      <td>
+                        <input type="number">
+                    </td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-block">Add Mark</button>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+

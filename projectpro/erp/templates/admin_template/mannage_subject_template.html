@@ -1,0 +1,61 @@
+{% extends 'admin_template/base_template.html' %}
+{% block page_title %}
+Manage Subject
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+
+
+           <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Manage Details</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>Subject Name</th>
+                      <th>Subject Code</th>
+                      <th>Course</th>
+                      <th>Faculty Name</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for subjects in subject %}
+                    <tr>
+                      <td>{{ subjects.sub_name }}</td>
+                      <td>{{ subjects.sub_code }}</td>
+                      <td>{{ subjects.course_id.c_name }}</td>
+                      <td>{{ subjects.faculty_id.first_name }} {{subjects.faculty_id.last_name}}</td>
+                      <td><a href="/edit_subject/{{ subjects.id}}" class="btn btn-success">Edit</a></td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+
